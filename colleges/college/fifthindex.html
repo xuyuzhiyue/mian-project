@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>技术动漫</title>
+    <link rel="stylesheet" href="fifthcss/styles.css">
+    <script src="fifthjs/excanvas.js"></script>
+    <script src="fifthjs/jquery.min.js"></script>
+    <script src="fifthjs/jquery.tagcanvas.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if( ! $('#myCanvas').tagcanvas({
+                textColour : '#ffffff',
+                outlineThickness : 1,
+                maxSpeed : 0.03,
+                depth : 0.75
+            })) {
+                // TagCanvas failed to load
+                $('#myCanvasContainer').hide();
+            }
+            // your other jQuery stuff here...
+        });
+    </script>
+
+</head>
+<body id="introduction">
+<div id="page">
+    <div id="container" class="content clearfix">
+        <!---->
+        <canvas width="300" height="300" id="myCanvas">
+            <p>Anything in here will be replaced on browsers that support the canvas element</p>
+            <ul>
+                <li><a href="" target="_blank">前端</a></li>
+                <li><a href="">后端</a></li>
+                <li><a href="">算法语数据结构</a></li>
+                <li><a href="">大数据</a></li>
+                <li><a href="">Android</a></li>
+                <li><a href="">iOS</a></li>
+                <li><a href="">接口测试</a></li>
+                <li><a href="">APPUI设计</a></li>
+                <li><a href="">动效动漫</a></li>
+                <li><a href="">计算机学习</a></li>
+                <li><a href="">人工智能</a></li>
+                <li><a href="">游戏</a></li>
+                <li><a href="">运维</a></li>
+            </ul>
+        </canvas>
+    </div>
+</div>
+</body>
+</html>

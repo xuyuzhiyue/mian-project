@@ -1,0 +1,20 @@
+http://blog.java1234.com/blog/articles/509.html     vue开发工具选用
+https://www.cnblogs.com/wuhua1/p/6686237.html      js里面的键盘事件对应的键码
+http://www.pianshen.com/article/6989294258/             tomacat9下载、安装及环境配置
+https://www.jianshu.com/p/b60203fd39be                    Tomcat的下载、安装及配置
+https://cn.vuejs.org/v2/guide/                                       介绍vue.js
+https://blog.csdn.net/zhangkaidsy/article/details/86645070            Nodejs安装及环境配置
+https://www.cnblogs.com/liuqiyun/p/8133904.html                        Nodejs安装及环境配置
+https://segmentfault.com/a/1190000014804826                              vue-cli脚手架配置
+https://blog.csdn.net/lindali1115/article/details/88027920               vue-cli脚手架webspace配置
+www.51qianduan.com/                                                                   jquery/js网页特效源码_css/html网站模板下载资源平台 - 51前端
+http://f2er.club/                                                                              前端人的俱乐部
+http://blog.koalite.com/bbg/                                                           bootstrap中的button颜色更改
+http://www.bejson.com/                                                                  在线JSON校验格式工具
+https://www.githubs.cn/
+http://api.asilu.com/#geo                                                                在线 JSONP 接口测试
+https://v3.bootcss.com/components/                                              bootstrap中文版
+http://free.3v.do/                                                        
+http://www.jq22.com/                                                                    jQuery插件库-收集最全最新最好的jQuery插件
+http://www.htmleaf.com/                                                               jQuery之家-自由分享jQuery、html5、css3的插件库
+https://www.iconfont.cn/search/index?q=%E5%B0%8F%E7%B1%B3             阿里巴巴矢量图                                       

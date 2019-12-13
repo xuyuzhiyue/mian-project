@@ -1,0 +1,441 @@
+1.监听网页的滚动
+$(window).scroll(function(){
+  1.监听网页的滚动的偏移位
+  var offset =$("html,body").scrollTop();
+})
+2.jquer跳转页面
+  （1）：$(document).read(function(){
+       $(".btn").click(function(){
+         window.location.href = "..."
+})
+})
+  
+     (2):：$(document).read(function(){
+       $(".btn").click(function(){
+         $(location).attr("href","testb.html")
+})
+})
+3.js监听窗口的大小变化
+  window.addEventListener("resize",function(){
+     获取改变后的宽度
+     var clientw =window.innerWidth
+})
+3.1jquery监听窗口的大小变化：
+$(function(){
+
+$(window).on("resize",function(){
+  获取窗口宽度：
+ let clientW =$(window).width();
+ 设置临界值
+ let isShowBigImage = clientW >=800;
+
+获取所有的items
+ let $allItems =$("#lk_carousl .item");
+
+ $allItems.each(function(index,item){
+取出图片的路径
+  let src = isShowBigImage ?$(item).data("lg-img") :$(item).data("sm-img")
+  let imgUrl ='url("'+src+'")';
+  
+设置背景
+$(item).css({
+  backgroundImage:imgUrl;
+})
+
+设置img标签
+if(!isShowBigImage ){
+  let $img ="<img src="'+src+'">";
+  $(item).empty().append($img);
+}else{
+   $(item).empty();
+}
+})
+})
+
+一开始就监听
+$(window).trigger("resize")
+})
+
+
+
+
+
+4.媒体查询：
+<style>
+  @media screen and (min-width:760px) and (max-width:768px){
+  .container{
+  width:750px;
+}
+}
+<style>
+<body>
+<div class="container">
+</div>
+<body>
+5.link-block...变为块级元素，block变为行内元素                      position: sticky;     top:44px;    固定滑行  
+
+6.导航处理：
+  let allList = $("#lk_nav" li);
+$(allList[2]).on("click",function(){
+  $("html,body").animate({scrollTop:$("#lk_hot").offset().top},1000)
+})
+7.去掉背景颜色：
+background-color:transparent
+8.背景图片-》图片内容始终在中间：
+{
+  background no-repeat center center; 
+ -webkit-background-size:cover;
+  background-size:cover;                                                    vertical-align: middle;垂直居中              
+}
+9.div->#lk_about .title{    竖直居中/伸缩布局
+  Display:flex;
+  Flex-direction:column;
+  Justify-content:center;
+Align-items:center;
+}
+vertical-align: middle;去除图片下面的三个像素
+text-overflow: ellipsis;  文本溢出显示省略符号来代表被修剪的文本。
+white-space: normal;合并空格，但是不会根据容器大小换行，表示不换行。
+   
+div :  display: flex;
+      flex-wrap: wrap; 包裹
+       justify-content: space-around;   均等分
+        img:  ~width: 48%;
+flex-start（默认值）：左对齐
+flex-end：右对齐
+center： 居中
+space-between：两端对齐，项目之间的间隔都相等。
+space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+space-evenly：项目是分布的，以便任何两个项目之间的间距（和边缘的空间）相等。
+局部滚动：height: 100px;
+               background-color: salmon;
+              overflow-y: scroll;
+height: 100vh;  视口模式
+9.1---vertical-align:middle 竖直居中-
+10.删除属性 $ul.removeAttribute("style")                       
+ 11---header{
+    padding-left:0!important; ;
+}
+！important 最高权重
+12.class="form-inline" 占一行  -》前提是引用bootstrap
+13.substring用来截取字符串    str.toFixed(2)  保留两位小数
+14.splice删除数据        push放在后面/unshift放在前面    split('').reverse().join('')  打散翻转拼接
+15.table-bordered---表格边框
+16.//toLowerCase()  转化为小写    toUpperCase()  转为大写
+17..toString().padStart(2,'0')   先转为字符串后在前面添加2个0
+18.Es6 ->Array.form() 把伪数组转化为真数组
+          ->Array.of()把零散的数组转化为数组
+19.多个对象往一个对象合成一个整：Object.assign()
+    let obj1={name:'张三'}
+ let obj2={age:18}
+ let obj3={sex'男'}
+let obj={};
+Object.assign(obj,obj1,obj2,obj3)
+20.延展操作符
+let str ='惊天的的'；
+let strArr =[...str]
+console.log(strArr);   ->strArr={'惊','天','的','的'}
+21.new set() ->组成一个不重复的数据集合
+    let myArr =[1,2,3,'张三',1,2]
+    console.log(new set(myArr))
+22.v-if  真实的条件渲染/  v-show->添加display:none->界面渲染
+23.组合表单中的相关元素： 
+<fieldset>
+    <legend>health information</legend>
+    height: <input type="text" />
+    weight: <input type="text" />
+  </fieldset>
+24.prevent 阻止默认行为   stop 阻止冒泡行为   capture 捕获/调换
+25.clear参数值说明：
+none : 　允许两边都可以有浮动对象
+both : 　不允许有浮动对象
+left : 　不允许左边有浮动对象
+right : 　不允许右边有浮动对象
+display: flex;  /*//左右分*/
+
+26--- localStorage.setItem("List",JSON.stringify(this.List))    转为Json模式
+         mounted(){
+    var List = JSON.parse(localStorage.getItem('List'))   序列化
+    if (List){
+      this.List = List
+    }
+  },
+26-1------刷新保存缓存数据
+             var Storage ={
+            set(key,value){
+         localStorage.setItem(key,JSON.stringify(value))
+    },
+             get(key){
+          return JSON.parse(localStorage.getItem(key))
+  },
+             remove(key){
+          localStorage.removeItem(key)  
+  }
+},
+export defalut Storage;
+APP.vue:         import Storage from '文件目录'
+                      Storage.set('List',this.List) 
+                      mounted(){
+               var List = Storage.get("List")
+               if(List){
+             this.List = List
+   }
+}
+27-----
+   安装下vue-resource
+
+npm install vue-resource --save
+
+
+
+全局引入，使用该插件；
+
+main.js里
+
+import VueResource from 'vue-resource'
+
+// 声明使用插件 底层会给vm和组件对象添加一个属性 $http
+
+Vue.use(VueResource)
+
+
+
+App里我们测试一个接口；
+
+let url='https://www.apiopen.top/novelSearchApi?name=盗墓'
+
+this.$http.get(url).then((response)=>{  // 成功的回调
+
+console.log('success')
+
+console.log(response.body)
+
+},(response)=>{  // 失败的回调
+
+console.log('error')
+
+console.log(response.text())
+
+})-----------------------------------
+     安装下axios；
+
+npm install axios
+
+
+
+axios使用是哪里用到哪里引入；
+
+import axios from 'axios'
+
+
+
+axios.get(url).then(response=>{
+
+ console.log(response)
+
+}).catch(error=>{
+
+ alert('error')
+
+ console.log(error)
+
+})
+
+28----
+   父组件给子组件传值
+          1.父组件调用子组件的时候  绑定动态属性
+           <Header>:title="title" :msg1111="msg1" :run="run" :home="this"></Header>
+                     可自己定义变量
+          2.在子组件里面通过props接受父组件传过来的数据
+                 props:["title "]
+29----
+    父组件主动获取子组件的数据和方法
+  1.调用子组件的时候定义一个ref
+     <Header  ref="header"></Header>  header 可自己定义变量
+  2.在父组件里面通过
+    this.$refs.header.属性
+    this.$refs.header.方法
+ 
+    直接在子组件中使用   ----子组件主动获取父组件的数据和方法
+  this.$parent.数据
+  this.$parent.方法
+30-----
+ 1.新建一个js文件，然后引用vue 实例化vue 最后暴露这个实例
+    import Vue from 'vue';
+var vueEvent = new Vue()
+export default vueEvent 
+2.在要广播的地方引用刚才定义的实例  import VueEvent from..
+3.通过 mouted(){ VueEmit.$emit('名称'，'数据') }
+4.在接受数据的地方通过 $on接受广播
+  VueEmit.$on('名称',function(data){
+   console.log(data)
+})
+31--------
+   vue路由配置
+    1.安装
+      npm install vue-router --save
+     import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+// 1.创建组件
+import Home from './components/Home'
+import News from './components/News'
+import Content from './components/Content'
+import Pcontent from './components/Pcontent'
+
+// 2.配置路由
+const routes =[
+  {path:'/home',component:Home},
+  {path:'/news',component:News},
+  {path:'/content/:aid',component:Content},
+  {path:'/pcontent',component:Pcontent},
+  {path:'*',redirect:'/home'}
+]
+
+// 3.实例化路由
+const router = new VueRouter({
+  routes
+})
+
+
+new Vue({
+  el: '#app',
+  router,
+  render: h => h(App)
+})
+32-----路由动态获取数据
+1--------------------Home.vue=======<router-link :to="'/content/'+value.aid"> {{value.username}}---{{value.title}}</router-link>
+                             main.js======  {path:'/content/:aid',component:Content},
+Content.vue====   mounted() {
+        console.log(this.$route.params);
+        var aid = this.$route.params.aid
+        this.requestData(aid)
+      },
+2--------------------News.vue====<router-link :to="'/pcontent?aid='+value.aid">{{value.title}}---{{index}}</router-link>
+                             main.js====== {path:'/pcontent',component:Pcontent},
+ Pcontent.vue======mounted() {
+        console.log(this.$route.query);
+        var aid=this.$route.query.aid
+        this.requestData(aid)
+      },
+33------------
+   this.$router.push({path:'news'})                        {path:'/news',component:News},
+   this.$router.push({name:'news'})                       {path:'/news',component:News,name:'news'},
+this.$router.replace({path:'news'})                       
+   this.$router.replace({name:'news'})  
+
+tag="button"
+
+34----------mint UI
+// 安装
+# Vue 1.x
+npm install mint-ui@1 -S
+# Vue 2.0
+npm install mint-ui -S
+
+// 引入全部组件
+import 'mint-ui/lib/style.css'
+import Vue from 'vue';
+import Mint from 'mint-ui';
+Vue.use(Mint);
+// 按需引入部分组件
+import { Cell, Checklist } from 'mint-ui';
+Vue.component(Cell.name, Cell);
+Vue.component(Checklist.name, Checklist);
+35....------------Element
+npm i element-ui -S
+import Vue from 'vue';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import App from './App.vue';
+
+Vue.use(ElementUI);
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
+
+-------------------------webpack.config.js配置，前提要在package.json中有file-loader，如果没有安装npm install file-loader --save {
+        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        loader: 'file-loader'
+      },
+
+36-------获取dom节点
+   <input ref="userinfo" type="text">
+   this.refs.userinfo.value      原生js用法
+   <div ref="box">box</div>
+  this.refs.box.style.background='red'
+
+37---位移----transform:translate(-50%，-50%)横轴，纵轴
+
+38----------store--index.js    单界面跳转多界面
+    import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+const store=new Vuex.Store({
+  state:{
+    counter:100
+  },
+  mutations:{
+    // 方法
+    increment(state){
+      state.counter++
+    },
+    decrement(state){
+      state.counter--
+    }
+  }
+})
+
+export default store
+
+main.js---------------
+  import store from './store'
+ new Vue({
+  ...   
+   store,
+ ....
+ })
+
+App.vue------------
+ <template>
+  <div id="app">
+    <h2>{{$store.state.counter}}</h2>
+    <button @click="add">+</button>
+    <button @click="sub">-</button>
+    <hr>
+    <hello-vuex></hello-vuex>
+  </div>
+</template>
+
+<script>
+  import HelloVuex from './components/HelloVuex'
+export default {
+  name: 'App',
+  methods:{
+    add(){
+      this.$store.commit('increment')
+    },
+    sub(){
+      this.$store.commit('decrement')
+    }
+  },
+  components:{
+    'hello-vuex':HelloVuex
+  }
+}
+</script>
+
+39-------------
+  1. axios({
+   url:"http://123.207.32.32:8000/home/multidata"
+   method:get   //可以不写
+}).then((response)=>{
+  console,log(response)
+})
+
+
+
